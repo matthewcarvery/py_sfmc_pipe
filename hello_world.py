@@ -32,8 +32,9 @@ if __name__== "__main__":
                     case 'R'|'T':
                         deletedFiles.append(os.path.normpath(os.path.join(git_root, item.a_path)))
                         addedFiles.append(os.path.normpath(os.path.join(git_root, item.b_path)))
-            return(addedFiles, modifiedFiles, deletedFiles)
             '''
+            return(addedFiles, modifiedFiles, deletedFiles)
+
         except:
             print('Some error occured while pushing the code')   
         
