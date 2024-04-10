@@ -20,7 +20,6 @@ if __name__== "__main__":
             git_root = repo.git.rev_parse("--show-toplevel")       
             previous_commit = repo.commit('HEAD~1')
             print(previous_commit)
-            '''
             for item in previous_commit.diff('HEAD'):
                 match item.change_type:
                     case 'M':
@@ -32,7 +31,6 @@ if __name__== "__main__":
                     case 'R'|'T':
                         deletedFiles.append(os.path.normpath(os.path.join(git_root, item.a_path)))
                         addedFiles.append(os.path.normpath(os.path.join(git_root, item.b_path)))
-            '''
             return(addedFiles, modifiedFiles, deletedFiles) 
         except:
             print('Some error occured while pushing the code')   
