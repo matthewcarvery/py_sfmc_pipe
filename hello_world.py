@@ -6,7 +6,7 @@ if __name__== "__main__":
     print ('folder : ', sys.argv[1])
     print ('BU : ', sys.argv[2])
 
-    f = open("main/test.htm", "r")
+    f = open("home/runner/work/Action_Test/Action_Test/test.htm", "r")
     print(f.read())
 
     print("Hello World!")
@@ -38,7 +38,6 @@ if __name__== "__main__":
          
             return(addedFiles, modifiedFiles, deletedFiles)
             '''
-
         except:
             print('Some error occured while pushing the code')   
         
