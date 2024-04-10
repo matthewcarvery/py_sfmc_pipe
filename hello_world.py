@@ -40,4 +40,4 @@ if __name__== "__main__":
             print('Some error occured while pushing the code')   
         
     git_push('main')
-    print(modifiedFiles)
+    
