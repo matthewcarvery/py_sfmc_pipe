@@ -19,7 +19,10 @@ if __name__== "__main__":
             repo = Repo(repofolder, search_parent_directories=True)
             git_root = repo.git.rev_parse("--show-toplevel")       
             previous_commit = repo.commit('HEAD~1')
-            print(repo.commit.diff('HEAD','HEAD~1'))
+            current_commit = repo.commit('HEAD')
+            git_diff = previous_commit.diff(current_commit)
+            changed_files = [ f.b_path for f in git_diff ]
+            print( "\n".join( changed_files ))
             '''
             for item in previous_commit.diff('HEAD'):
                 match item.change_type:
