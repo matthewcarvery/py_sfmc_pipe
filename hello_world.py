@@ -1,6 +1,7 @@
 import sys
 from git import Repo
 import os
+import json
 
 if __name__== "__main__":
     print ('folder : ', sys.argv[1])
@@ -10,8 +11,9 @@ if __name__== "__main__":
     print ('Dels : ', sys.argv[5])
     print ('Renames : ', sys.argv[6])
     print ('TypeChange : ', sys.argv[7])
+    adds = json.loads(sys.argv[4])
 
-    f = open("main/test.htm", "r")
+    f = open("main" + adds, "r")
     print(f.read())
 
     print("Hi there!")
