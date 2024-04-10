@@ -11,9 +11,9 @@ if __name__== "__main__":
     print ('Dels : ', sys.argv[5])
     print ('Renames : ', sys.argv[6])
     print ('TypeChange : ', sys.argv[7])
-    adds = json.loads(sys.argv[4])
+    mods = json.loads(sys.argv[4])
 
-    f = open("main" + adds, "r")
+    f = open("main" + mods[0], "r")
     print(f.read())
 
     print("Hi there!")
