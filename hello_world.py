@@ -13,7 +13,7 @@ if __name__== "__main__":
     print ('TypeChange : ', sys.argv[7])
     mods = json.loads(sys.argv[4])
 
-    f = open("main" + mods[0], "r")
+    f = open("main" + os.sep + mods[0], "r")
     print(f.read())
 
     print("Hi there!")
