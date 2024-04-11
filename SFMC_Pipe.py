@@ -11,19 +11,19 @@ if __name__== "__main__":
     adds = json.loads(sys.argv[3])
     mods = json.loads(sys.argv[4])
     dels = json.loads(sys.argv[5])
-    ren1 = sys.argv[6]
-    ren2 = ren1.replace('\\"','\"')
-    rens = json.loads(ren2)
+    rens = json.loads(sys.argv[6].replace('\\"','\"'))
     type = json.loads(sys.argv[7])
 
+    for x in rens:
+       pair = rens[x].split(',')
+       dels.append(pair[0])
+       adds.append(pair[1])
 
-    print("Added: " + sys.argv[3])
-    print("Modifiied: " + sys.argv[4])
-    print("Deleted: " + sys.argv[5]) 
-    print("Rename: " + sys.argv[6])
-    print("Type Change: " + sys.argv[7])
-
-    print(rens[0].split(','))
+    print("Added: " + adds)
+    print("Modifiied: " + mods)
+    print("Deleted: " + dels) 
+    print("Rename: " + rens)
+    print("Type Change: " + type)
 
     f = open("main" + os.sep + adds[0], "r")
     print(f.read())
