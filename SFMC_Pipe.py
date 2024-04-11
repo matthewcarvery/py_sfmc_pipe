@@ -11,14 +11,15 @@ if __name__== "__main__":
     adds = json.loads(sys.argv[3])
     mods = json.loads(sys.argv[4])
     dels = json.loads(sys.argv[5])
-    rens = json.loads(sys.argv[6])
+    #rens = json.loads(sys.argv[6])
     type = json.loads(sys.argv[7])
 
 
     print("Added: " + adds)
     print("Modifiied: " + mods)
     print("Deleted: " + dels)
-    print("Renamed: " + rens)
+    #print("Renamed: " + rens)
+    print(sys.argv[6])
     print("Type Change: " + type)
 
 
