@@ -12,7 +12,7 @@ if __name__== "__main__":
     mods = json.loads(sys.argv[4])
     dels = json.loads(sys.argv[5])
     ren1 = sys.argv[6]
-    rens = json.loads(ren1)
+    rens = json.loads(ren1.replace("\\\\", "\\"))
     type = json.loads(sys.argv[7])
 
 
