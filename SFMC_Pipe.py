@@ -19,11 +19,11 @@ if __name__== "__main__":
        dels.append(pair[0])
        adds.append(pair[1])
 
-    print("Added: " + adds)
-    print("Modifiied: " + mods)
-    print("Deleted: " + dels) 
-    print("Rename: " + rens)
-    print("Type Change: " + type)
+    print("Added: " + str(adds))
+    print("Modifiied: " + str(mods))
+    print("Deleted: " + str(dels) )
+    print("Rename: " + str(rens))
+    print("Type Change: " + str(type))
 
     f = open("main" + os.sep + adds[0], "r")
     print(f.read())
