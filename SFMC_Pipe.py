@@ -14,7 +14,7 @@ if __name__== "__main__":
     rens = json.loads(sys.argv[6].replace('\\"','\"'))
     type = json.loads(sys.argv[7])
 
-    for x in rens:
+    for x, item in enumerate(rens):
        pair = rens[x].split(',')
        dels.append(pair[0])
        adds.append(pair[1])
