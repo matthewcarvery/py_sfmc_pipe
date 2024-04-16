@@ -16,7 +16,7 @@ if __name__== "__main__":
    #client_id = secret.account[accountname]['client_id']
    #subdomain = secret.account[accountname]['subdomain']
    #clientsecret = secret.account[accountname]['clientsecret']
-   resturl = f'https://{subdomain}.rest.marketingcloudapis.com/'
+   #resturl = f'https://{subdomain}.rest.marketingcloudapis.com/'
    repofolder = "main" + os.sep
    accountname = sys.argv[2]
    masterfolder = sys.argv[1]
