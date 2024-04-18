@@ -13,10 +13,10 @@ if __name__== "__main__":
    folderlist = []
    childfolders = []
 
-   #client_id = secret.account[accountname]['client_id']
-   #subdomain = secret.account[accountname]['subdomain']
-   #clientsecret = secret.account[accountname]['clientsecret']
-   #resturl = f'https://{subdomain}.rest.marketingcloudapis.com/'
+   client_id = secret.account[accountname]['client_id']
+   subdomain = secret.account[accountname]['subdomain']
+   clientsecret = secret.account[accountname]['clientsecret']
+   resturl = f'https://{subdomain}.rest.marketingcloudapis.com/'
    repofolder = "main" + os.sep
    accountname = sys.argv[2]
    masterfolder = sys.argv[1]
@@ -35,6 +35,8 @@ if __name__== "__main__":
       #print(f.read())
 
    def verifyfolder(pfolderid):
+      print("Checking folder structure in SFMC")
+      '''
       headers = {'authorization': f'Bearer {access_token}', 'content-type': 'application/json'}
       rest_url = f'{resturl}/asset/v1/content/categories?$page=1&$pagesize=10&$orderBy=name desc&$filter=parentId eq {pfolderid}'
       verify_request = requests.get(url=f'{rest_url}', headers=headers)
@@ -44,18 +46,24 @@ if __name__== "__main__":
                newid = {'id':refold['items'][q]['id'], 'name': refold['items'][q]['name'], 'parent': refold['items'][q]['parentId']}
                childfolders.append(newid)
                verifyfolder(refold['items'][q]['id'])
+      '''         
         
 
    def delete_content(deletedFiles):
       deletablefiles = getdelete(deletedFiles)
-      #headers = {'authorization': f'Bearer {access_token}', 'content-type': 'application/json'}
+      print("deleting " + str(deletedFiles) + " from SFMC" )
+      '''
+      headers = {'authorization': f'Bearer {access_token}', 'content-type': 'application/json'}
       for q in range(len(deletablefiles)):
          data, filename, filedir = definefile(deletablefiles[q], "del")
-         #insert_request = delete_assets(data, headers, filename, filedir)
+         insert_request = delete_assets(data, headers, filename, filedir)
          print("Deleting: " + filename) 
-         #print(insert_request)
+         print(insert_request)
+      ''' 
 
    def getdelete(delete):
+      print("Finding file locations for deletion in SFMC")
+      '''
       r = []
       for q in delete:
          dirs = []
@@ -71,13 +79,16 @@ if __name__== "__main__":
                   folder = folderids[0]['id']
          r.append ({'file':os.path.normpath(q), 'dir':folder})
       return(r)
+      '''
    
 
    def import_content(filelist, addedFiles, modifiedFiles):
+      print("Finding and adding " + str(addedFiles))
+      print("Finding and updating " + str(modifiedFiles))
+      '''
       headers = {'authorization': f'Bearer {access_token}', 'content-type': 'application/json'}
       for x in range(len(filelist)):
          data, filename, filedir = definefile(filelist[x], "add")
-         '''
          if filelist[x]['file'] in addedFiles and Refresh == False:  
                insert_request = add_assets(data, headers)
          elif filelist[x]['file'] in modifiedFiles or Refresh == True:
@@ -90,10 +101,10 @@ if __name__== "__main__":
                else:
                   insert_request = add_assets(data, headers)
          else:
-               insert_request = "File not changed. Skipping."
-         '''      
+               insert_request = "File not changed. Skipping." 
          print(filename) 
-         #print(insert_request) 
+         print(insert_request)
+         ''' 
 
    def definefile(currentfile,type):
       filesplit, file_extension = os.path.splitext(currentfile['file'])
@@ -110,7 +121,7 @@ if __name__== "__main__":
                   filecontent = base64.b64encode(f.read()).decode('utf-8')
       else:
          filecontent = ""     
-      #data = buildpayload(filename, file_ext, filecontent, filedir, masterfolder)
+      data = buildpayload(filename, file_ext, filecontent, filedir, masterfolder)
       data = {"file": "data"}
       return(data, filename, filedir) 
 
@@ -138,6 +149,8 @@ if __name__== "__main__":
       return(insert_request)                
 
    def list_files(dir):
+    print('Matching folder paths to SFMC category ids')
+    '''
     r = []
     exclude = set(['New folder', 'Windows', 'Desktop', '.git'])
     skip = ('.md', '.yml')
@@ -168,6 +181,7 @@ if __name__== "__main__":
                 folderid = masterfolder     
             r.append({'file':os.path.normpath(os.path.join(root, name)), 'dir':folderid})
     return r
+    '''
 
    def makedir(dirname, parentdirid, dirpath):
     body = {
@@ -181,8 +195,8 @@ if __name__== "__main__":
     childfolders.append({'id':foldercreate['id'],'name':dirname, 'parent':parentdirid, 'path': dirpath})
 
 
-   #access_token = generate_access_token(client_id, clientsecret, subdomain)
-   #verifyfolder(masterfolder)
+   access_token = generate_access_token(client_id, clientsecret, subdomain)
+   verifyfolder(masterfolder)
    delete_content(deletedFiles)
    filelist = list_files(repofolder)
    import_content(filelist, addedFiles, modifiedFiles)

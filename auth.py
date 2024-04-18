@@ -3,6 +3,8 @@ import json
 from time import time
 
 def generate_access_token(client_id: str, clientsecret: str, subdomain) -> str:
+    print("Getting API access token")
+    '''
     auth_base_url = f'https://{subdomain}.auth.marketingcloudapis.com/v2/token'
     headers = {'content-type': 'application/json'}
     payload = {'grant_type': 'client_credentials', 'client_id': client_id, 'client_secret': clientsecret}
@@ -15,3 +17,4 @@ def generate_access_token(client_id: str, clientsecret: str, subdomain) -> str:
     expires_in = time() + authentication_response['expires_in']
 
     return(access_token)
+    '''
