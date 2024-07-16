@@ -3,6 +3,7 @@ import os
 import json
 import base64
 import requests
+from pathlib import Path
 from assetlist import assets
 from auth import generate_access_token
 from plb import buildpayload
@@ -28,7 +29,10 @@ if __name__== "__main__":
    repofolder = "main" + os.sep
    accountname = sys.argv[2]
    allfiles = json.loads(sys.argv[1])
-   print(allfiles)
+   for x, item in enumerate(allfiles):
+      path = Path(allfiles[x])
+      print(path)
+   
    masterfolder = 0
    addedFiles = json.loads(sys.argv[3])
    modifiedFiles = json.loads(sys.argv[4])
