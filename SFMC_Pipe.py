@@ -29,6 +29,7 @@ if __name__== "__main__":
    accountname = sys.argv[2]
    allfiles = json.loads(sys.argv[1])
    print(allfiles)
+   masterfolder = 0
    addedFiles = json.loads(sys.argv[3])
    modifiedFiles = json.loads(sys.argv[4])
    deletedFiles = json.loads(sys.argv[5])
