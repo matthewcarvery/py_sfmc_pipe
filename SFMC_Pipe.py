@@ -27,12 +27,11 @@ if __name__== "__main__":
 
    repofolder = "main" + os.sep
    accountname = sys.argv[2]
-   masterfolder = sys.argv[1]
-   s = ''.join(sys.argv[4])
-   print(s)
-   #addedFiles = json.loads(sys.argv[3])
-   #modifiedFiles = json.loads(sys.argv[4])
-   #deletedFiles = json.loads(sys.argv[5])
+   allfiles = json.loads(sys.argv[1])
+   print(allfiles)
+   addedFiles = json.loads(sys.argv[3])
+   modifiedFiles = json.loads(sys.argv[4])
+   deletedFiles = json.loads(sys.argv[5])
    rens = json.loads(sys.argv[6].replace('\\"','\"'))
    type = json.loads(sys.argv[7])
 
