@@ -206,6 +206,6 @@ if __name__== "__main__":
 
    access_token = generate_access_token(client_id, clientsecret, subdomain)
    verifyfolder(masterfolder)
-   delete_content(deletedFiles)
+   #delete_content(deletedFiles)
    filelist = list_files(repofolder)
-   import_content(filelist, addedFiles, modifiedFiles)
+   #import_content(filelist, addedFiles, modifiedFiles)
