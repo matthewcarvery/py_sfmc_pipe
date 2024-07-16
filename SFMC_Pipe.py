@@ -30,7 +30,7 @@ if __name__== "__main__":
    accountname = sys.argv[2]
    allfiles = json.loads(sys.argv[1])
    for x, item in enumerate(allfiles):
-      path = os.path.split(os.path.abspath(Path(allfiles[x]))
+      path = os.path.split(os.path.abspath(Path(allfiles[x])))
       print(path)
    
    masterfolder = 0
