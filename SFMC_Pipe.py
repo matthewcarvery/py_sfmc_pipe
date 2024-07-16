@@ -28,7 +28,7 @@ if __name__== "__main__":
    repofolder = "main" + os.sep
    accountname = sys.argv[2]
    masterfolder = sys.argv[1]
-   s = ''.join(sys.argv[4)
+   s = ''.join(sys.argv[4])
    print(s)
    #addedFiles = json.loads(sys.argv[3])
    #modifiedFiles = json.loads(sys.argv[4])
