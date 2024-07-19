@@ -30,19 +30,21 @@ if __name__== "__main__":
    for x, item in enumerate(allfiles):
       pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
 
-   path = os.path.dirname(os.path.join(pathlist[0],"file.htm"))
-   print(path)
-   target = "Project.yml"
-   top = "/"
+
+   cur_dir = os.path.dirname(os.path.abspath(Path(allfiles[x])))
+   file_name = "Project.yml"
    while True:
-      if os.path.isfile(os.path.join(path,target)):
-         #found
-         break
-      if path==top:   #alternative check for root dir: if os.path.dirname(path)==path
-         #not found
-         break    
-      path=os.path.dirname(path)
-      #print(path)
+    file_list = os.listdir(cur_dir)
+    parent_dir = os.path.dirname(cur_dir)
+    if file_name in file_list:
+        print "File Exists in: ", cur_dir
+        break
+    else:
+        if cur_dir == parent_dir: #if dir is root dir
+            print "File not found"
+            break
+        else:
+            cur_dir = parent_dir   
    
    masterfolder = 0
    addedFiles = json.loads(sys.argv[3])
