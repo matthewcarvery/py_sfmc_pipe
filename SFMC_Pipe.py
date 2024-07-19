@@ -30,7 +30,7 @@ if __name__== "__main__":
    for x, item in enumerate(allfiles):
       pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
 
-   path = os.path.dirname(Path(allfiles[x]))
+   path = os.path.dirname(os.path.join(pathlist[0],"file.htm"))
    target = "Project.yml"
    top = "/"
    while True:
