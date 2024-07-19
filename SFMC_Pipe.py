@@ -24,13 +24,24 @@ if __name__== "__main__":
    clientsecret = ""
    resturl = ""
 
-
-
    repofolder = "main" + os.sep
    accountname = sys.argv[2]
    allfiles = json.loads(sys.argv[1])
    for x, item in enumerate(allfiles):
-      path = os.path.split(os.path.abspath(Path(allfiles[x])))
+      pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
+      print(path)
+
+   path = os.path.dirname(pathlist[0])
+   target = "project.yml"
+   top = "/"
+   while True:
+      if os.path.isfile(os.path.join(path,target)):
+         #found
+         break
+      if path==top:   #alternative check for root dir: if os.path.dirname(path)==path
+         #not found
+         break    
+      path=os.path.dirname(path)
       print(path)
    
    masterfolder = 0
