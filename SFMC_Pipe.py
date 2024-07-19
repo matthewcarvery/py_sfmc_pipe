@@ -30,7 +30,6 @@ if __name__== "__main__":
    allfiles = json.loads(sys.argv[1])
    masterfolder = 0
 
-
    cur_dir = os.path.dirname(repofolder + allfiles[0])
    file_name = "Project.yml"
    while True:
@@ -46,7 +45,6 @@ if __name__== "__main__":
             with open(fileloc, 'r') as f:
                setting = yaml.safe_load(f)
                masterfolder = setting['folderID']
-               print(masterfolder)
             break
          else:
             cur_dir = parent_dir   
