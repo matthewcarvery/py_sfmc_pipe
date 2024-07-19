@@ -31,7 +31,7 @@ if __name__== "__main__":
       pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
 
 
-   cur_dir = "main/Action_Test/Action_Test/Subfolder1"
+   cur_dir = "main/Action_Test/Subfolder1"
    file_name = "Project.yml"
    while True:
     file_list = os.listdir(cur_dir)
