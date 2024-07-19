@@ -37,11 +37,11 @@ if __name__== "__main__":
     file_list = os.listdir(cur_dir)
     parent_dir = os.path.dirname(cur_dir)
     if file_name in file_list:
-        print "File Exists in: ", cur_dir
+        print("File Exists in: ", cur_dir)
         break
     else:
         if cur_dir == parent_dir: #if dir is root dir
-            print "File not found"
+            print("File not found")
             break
         else:
             cur_dir = parent_dir   
