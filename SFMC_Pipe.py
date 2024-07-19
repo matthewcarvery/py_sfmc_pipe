@@ -55,6 +55,9 @@ if __name__== "__main__":
    rens = json.loads(sys.argv[6].replace('\\"','\"'))
    type = json.loads(sys.argv[7])
 
+   print(rens)
+   print(type)
+
    for x, item in enumerate(rens):
       pair = rens[x].split(',')
       deletedFiles.append(pair[0])
