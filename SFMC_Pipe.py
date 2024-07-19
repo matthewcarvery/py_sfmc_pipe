@@ -36,17 +36,18 @@ if __name__== "__main__":
    while True:
       file_list = os.listdir(cur_dir)
       parent_dir = os.path.dirname(cur_dir)
-      if file_name in file_list:
-         print("File Exists in: ", cur_dir)
-         fileloc = os.path.join(cur_dir, file_name)
-         with open(fileloc, 'r') as f:
-            setting = yaml.safe_load(f)
-            masterfolder = setting['folderID']
-            print(masterfolder)
-         break
+      if cur_dir == parent_dir: #if dir is root dir
+            print("Project.yml File not found")
+            sys.exit()
+            break
       else:
-         if cur_dir == parent_dir: #if dir is root dir
-            print("File not found")
+         if file_name in file_list:
+            print("File Exists in: ", cur_dir)
+            fileloc = os.path.join(cur_dir, file_name)
+            with open(fileloc, 'r') as f:
+               setting = yaml.safe_load(f)
+               masterfolder = setting['folderID']
+               print(masterfolder)
             break
          else:
             cur_dir = parent_dir   
@@ -57,9 +58,6 @@ if __name__== "__main__":
    deletedFiles = json.loads(sys.argv[5])
    rens = json.loads(sys.argv[6].replace('\\"','\"'))
    type = json.loads(sys.argv[7])
-
-   print(rens)
-   print(type)
 
    for x, item in enumerate(rens):
       pair = rens[x].split(',')
