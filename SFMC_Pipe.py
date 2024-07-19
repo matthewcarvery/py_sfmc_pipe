@@ -41,7 +41,7 @@ if __name__== "__main__":
    print(os.listdir(repofolder))
 
 
-   cur_dir = os.path.dirname(repofolder + sys.argv[0])
+   cur_dir = os.path.dirname(repofolder + sys.argv[1])
    file_name = "Project.yml"
    while True:
     file_list = os.listdir(cur_dir)
