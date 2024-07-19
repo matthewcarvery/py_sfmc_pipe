@@ -40,8 +40,8 @@ if __name__== "__main__":
    print(pathlist)
    print(os.listdir(repofolder))
 
-   '''
-   cur_dir = sys.argv[7]
+
+   cur_dir = os.path.dirname(repofolder + sys.argv[0])
    file_name = "Project.yml"
    while True:
     file_list = os.listdir(cur_dir)
@@ -55,7 +55,7 @@ if __name__== "__main__":
             break
         else:
             cur_dir = parent_dir   
-   '''
+ 
    masterfolder = 0
    addedFiles = json.loads(sys.argv[3])
    modifiedFiles = json.loads(sys.argv[4])
