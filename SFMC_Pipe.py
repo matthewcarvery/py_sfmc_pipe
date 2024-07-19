@@ -31,6 +31,7 @@ if __name__== "__main__":
       pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
 
    path = os.path.dirname(os.path.join(pathlist[0],"file.htm"))
+   print(path)
    target = "Project.yml"
    top = "/"
    while True:
@@ -41,7 +42,7 @@ if __name__== "__main__":
          #not found
          break    
       path=os.path.dirname(path)
-      print(path)
+      #print(path)
    
    masterfolder = 0
    addedFiles = json.loads(sys.argv[3])
