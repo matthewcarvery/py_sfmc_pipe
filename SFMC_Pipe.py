@@ -1,4 +1,5 @@
 import sys
+import yaml
 import os
 import json
 import base64
@@ -27,36 +28,29 @@ if __name__== "__main__":
    repofolder = "main" + os.sep
    accountname = sys.argv[2]
    allfiles = json.loads(sys.argv[1])
-   for x, item in enumerate(allfiles):
-      pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
-   print(sys.argv[0])      
-   print(sys.argv[1])
-   print(sys.argv[2])
-   print(sys.argv[3])
-   print(sys.argv[4])
-   print(sys.argv[5])
-   print(sys.argv[6])
-   print(sys.argv[7])   
-   print(pathlist)
-   print(os.listdir(repofolder))
+   masterfolder = 0
 
 
    cur_dir = os.path.dirname(repofolder + allfiles[0])
    file_name = "Project.yml"
    while True:
-    file_list = os.listdir(cur_dir)
-    parent_dir = os.path.dirname(cur_dir)
-    if file_name in file_list:
-        print("File Exists in: ", cur_dir)
-        break
-    else:
-        if cur_dir == parent_dir: #if dir is root dir
+      file_list = os.listdir(cur_dir)
+      parent_dir = os.path.dirname(cur_dir)
+      if file_name in file_list:
+         print("File Exists in: ", cur_dir)
+         fileloc = os.path.join(cur_dir, file_name)
+         with open(fileloc, 'r') as f:
+            setting = yaml.load(f)
+            masterfolder = setting['fileID']
+         break
+      else:
+         if cur_dir == parent_dir: #if dir is root dir
             print("File not found")
             break
-        else:
+         else:
             cur_dir = parent_dir   
  
-   masterfolder = 0
+
    addedFiles = json.loads(sys.argv[3])
    modifiedFiles = json.loads(sys.argv[4])
    deletedFiles = json.loads(sys.argv[5])
