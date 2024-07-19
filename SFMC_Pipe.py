@@ -36,6 +36,7 @@ if __name__== "__main__":
    file_name = "Project.yml"
    while True:
       file_list = os.listdir(cur_dir)
+      print(cur_dir)
       parent_dir = os.path.dirname(cur_dir)
       if cur_dir == parent_dir: #if dir is root dir
             print("Project.yml File not found")
