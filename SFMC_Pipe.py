@@ -41,7 +41,7 @@ if __name__== "__main__":
          fileloc = os.path.join(cur_dir, file_name)
          with open(fileloc, 'r') as f:
             setting = yaml.safe_load(f)
-            masterfolder = setting['fileID']
+            masterfolder = setting['folderID']
             print(masterfolder)
          break
       else:
