@@ -32,24 +32,21 @@ if __name__== "__main__":
 
 
    cur_dir = os.path.dirname(repofolder + allfiles[0])
-   print(cur_dir)
    file_name = "Project.yml"
    while True:
-      file_list = os.listdir("main")
-      parent_dir = os.path.dirname(cur_dir)
-      print(cur_dir)
-      print(parent_dir)
-      if file_name in file_list:
-         print("File Exists in: ", cur_dir)
-         fileloc = os.path.join(cur_dir, file_name)
-         with open(fileloc, 'r') as f:
-            setting = yaml.safe_load(f)
-            masterfolder = setting['folderID']
-            print(masterfolder)
-         break
+      if cur_dir == os.path.dirname(repofolder):
+         print("Project yml file not found - aborting")
+         sys.exit()
       else:
-         if cur_dir == parent_dir: #if dir is root dir
-            print("File not found")
+         file_list = os.listdir(cur_dir)
+         parent_dir = os.path.dirname(cur_dir)
+         if file_name in file_list:
+            print("File Exists in: ", cur_dir)
+            fileloc = os.path.join(cur_dir, file_name)
+            with open(fileloc, 'r') as f:
+               setting = yaml.safe_load(f)
+               masterfolder = setting['folderID']
+               print(masterfolder)
             break
          else:
             cur_dir = parent_dir   
