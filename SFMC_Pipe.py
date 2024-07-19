@@ -35,7 +35,7 @@ if __name__== "__main__":
    print(cur_dir)
    file_name = "Project.yml"
    while True:
-      file_list = os.listdir(cur_dir)
+      file_list = os.listdir("main")
       parent_dir = os.path.dirname(cur_dir)
       print(cur_dir)
       print(parent_dir)
