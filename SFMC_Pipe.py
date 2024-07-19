@@ -29,9 +29,8 @@ if __name__== "__main__":
    allfiles = json.loads(sys.argv[1])
    for x, item in enumerate(allfiles):
       pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
-      print(os.path.abspath(Path(allfiles[x])))
 
-   path = os.path.dirname(os.path.abspath(Path(allfiles[x])))
+   path = os.path.dirname(Path(allfiles[x]))
    target = "Project.yml"
    top = "/"
    while True:
