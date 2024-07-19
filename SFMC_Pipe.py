@@ -31,7 +31,7 @@ if __name__== "__main__":
       pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
       print(pathlist)
 
-   path = os.path.dirname(pathlist[0])
+   path = os.path.dirname(allfiles[0])
    target = "Project.yml"
    top = "/"
    while True:
