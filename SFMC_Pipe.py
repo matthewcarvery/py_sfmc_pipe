@@ -29,7 +29,8 @@ if __name__== "__main__":
    accountname = sys.argv[2]
    allfiles = json.loads(sys.argv[1])
    masterfolder = 0
-
+   print(repofolder)
+   print(allfiles)
 
    cur_dir = os.path.dirname(repofolder + allfiles[0])
    file_name = "Project.yml"
