@@ -42,6 +42,7 @@ if __name__== "__main__":
          with open(fileloc, 'r') as f:
             setting = yaml.load(f)
             masterfolder = setting['fileID']
+            print(masterfolder)
          break
       else:
          if cur_dir == parent_dir: #if dir is root dir
