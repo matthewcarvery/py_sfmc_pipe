@@ -36,6 +36,8 @@ if __name__== "__main__":
    while True:
       file_list = os.listdir(cur_dir)
       parent_dir = os.path.dirname(cur_dir)
+      print(cur_dir)
+      print(parent_dir)
       if file_name in file_list:
          print("File Exists in: ", cur_dir)
          fileloc = os.path.join(cur_dir, file_name)
