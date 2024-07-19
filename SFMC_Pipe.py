@@ -32,7 +32,7 @@ if __name__== "__main__":
       print(pathlist)
 
    path = os.path.dirname(pathlist[0])
-   target = "project.yml"
+   target = "Project.yml"
    top = "/"
    while True:
       if os.path.isfile(os.path.join(path,target)):
