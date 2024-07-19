@@ -25,12 +25,14 @@ if __name__== "__main__":
    resturl = ""
 
    repofolder = "main" + os.sep
-   accountname = sys.argv[1]
-   allfiles = json.loads(sys.argv[0])
+   accountname = sys.argv[2]
+   allfiles = json.loads(sys.argv[1])
    for x, item in enumerate(allfiles):
       pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
 
+   print(os.listdir(repofolder))
 
+'''
    cur_dir = sys.argv[7]
    file_name = "Project.yml"
    while True:
@@ -45,13 +47,13 @@ if __name__== "__main__":
             break
         else:
             cur_dir = parent_dir   
-   
+   '''
    masterfolder = 0
-   addedFiles = json.loads(sys.argv[2])
-   modifiedFiles = json.loads(sys.argv[3])
-   deletedFiles = json.loads(sys.argv[4])
-   rens = json.loads(sys.argv[5].replace('\\"','\"'))
-   type = json.loads(sys.argv[6])
+   addedFiles = json.loads(sys.argv[3])
+   modifiedFiles = json.loads(sys.argv[4])
+   deletedFiles = json.loads(sys.argv[5])
+   rens = json.loads(sys.argv[6].replace('\\"','\"'))
+   type = json.loads(sys.argv[7])
 
    for x, item in enumerate(rens):
       pair = rens[x].split(',')
