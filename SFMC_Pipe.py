@@ -38,12 +38,7 @@ if __name__== "__main__":
       file_list = os.listdir(cur_dir)
       print(cur_dir)
       parent_dir = os.path.dirname(cur_dir)
-      if cur_dir == parent_dir: #if dir is root dir
-            print("Project.yml File not found")
-            sys.exit()
-            break
-      else:
-         if file_name in file_list:
+      if file_name in file_list:
             print("File Exists in: ", cur_dir)
             fileloc = os.path.join(cur_dir, file_name)
             with open(fileloc, 'r') as f:
@@ -51,8 +46,13 @@ if __name__== "__main__":
                masterfolder = setting['folderID']
                print(masterfolder)
             break
-         else:
-            cur_dir = parent_dir   
+      else:
+         if cur_dir == parent_dir: #if dir is root dir
+               print("Project.yml File not found")
+               sys.exit()
+               break
+            else:
+               cur_dir = parent_dir   
  
 
    addedFiles = json.loads(sys.argv[3])
