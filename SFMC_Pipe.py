@@ -48,11 +48,11 @@ if __name__== "__main__":
             break
       else:
          if cur_dir == parent_dir: #if dir is root dir
-               print("Project.yml File not found")
-               sys.exit()
-               break
-            else:
-               cur_dir = parent_dir   
+            print("Project.yml File not found")
+            sys.exit()
+            break
+         else:
+            cur_dir = parent_dir   
  
 
    addedFiles = json.loads(sys.argv[3])
