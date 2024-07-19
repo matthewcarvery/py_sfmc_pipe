@@ -29,7 +29,14 @@ if __name__== "__main__":
    allfiles = json.loads(sys.argv[1])
    for x, item in enumerate(allfiles):
       pathlist = os.path.split(os.path.abspath(Path(allfiles[x])))
-   print(sys.argv[8])   
+   print(sys.argv[0])      
+   print(sys.argv[1])
+   print(sys.argv[2])
+   print(sys.argv[3])
+   print(sys.argv[4])
+   print(sys.argv[5])
+   print(sys.argv[6])
+   print(sys.argv[7])   
    print(pathlist)
    print(os.listdir(repofolder))
 
