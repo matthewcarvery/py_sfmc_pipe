@@ -71,7 +71,7 @@ if __name__== "__main__":
       print("Checking folder structure in SFMC")
       '''
       headers = {'authorization': f'Bearer {access_token}', 'content-type': 'application/json'}
-      rest_url = f'{resturl}/asset/v1/content/categories?$page=1&$pagesize=10&$orderBy=name desc&$filter=parentId eq {pfolderid}'
+      rest_url = f'{resturl}/asset/v1/content/categories?$page=1&$pagesize=500&$orderBy=name desc&$filter=parentId eq {pfolderid}'
       verify_request = requests.get(url=f'{rest_url}', headers=headers)
       refold = json.loads(verify_request.content)
       if refold['count'] > 0:
